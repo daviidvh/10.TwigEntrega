@@ -1,0 +1,38 @@
+{% extends "plantilla.twig" %}
+
+{% block title %}Index Clientes{% endblock %}
+{% block main %}
+
+
+    <div class="container mt-4">
+        <h2>Listado de Clientes</h2>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Dni</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Dirección</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.dni }}</td>
+                        <td>{{ cliente.nombre }}</td>
+                        <td>{{ cliente.apellido }}</td>
+                        <td>{{ cliente.correo }}</td>
+                        <td>{{ cliente.direccion }}</td>
+                        <td><a href='pedidos-usuarios?id={{ cliente.id }}' class="btn btn-success">Ver sus pedidos</a></td>
+                    </tr>
+                {% endfor %}            
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

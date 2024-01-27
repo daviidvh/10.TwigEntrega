@@ -1,0 +1,35 @@
+{% extends "plantilla.twig" %}
+
+{% block title %}Index Productos{% endblock %}
+{% block main %}
+
+    <div class="container mt-4">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for producto in productos %}
+                    <tr>
+                        <form id="productos-form" action="producto-editado?id={{ producto.id }}" method="post">
+                        <td>{{ producto.id }}</td>
+                        <td><input type="text" id="nombre" name="nombre" value="{{ producto.nombre }}"></td>
+                        <td><input type="text" id="descripcion" name="descripcion" value="{{ producto.descripcion }}"></td>
+                        <td><input type="text" id="precio" name="precio" value="{{ producto.precio }}"></td>
+                        <td><input type="text" id="stock" name="stock" value="{{ producto.stock }}"></td>
+                        <td><button type="submit" class="btn btn-success" id="productos-button" >Actualizar</button></td>
+                    </tr>
+                {% endfor %}            
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

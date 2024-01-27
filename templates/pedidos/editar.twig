@@ -1,0 +1,36 @@
+{% extends "plantilla.twig" %}
+
+{% block title %}Editar Pedido{% endblock %}
+{% block main %}
+    <div class="container mt-4">
+        <h2>Editar Pedido</h2>
+
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Direccion</th>
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidoClientes %}
+                    <tr>
+                    
+                        <form id="producto-form-{{ producto.id }}" action="pedido-editado?id_pedido={{ pedido.pedido_id }}&id_producto={{ pedido.producto_id }}" method="post">
+                            <td><input type="text" id="nombre" name="nombre" class="form-control" value="{{ pedido.producto }}" required></td>
+                            <td><input type="text" id="cantidad" name="cantidad" class="form-control" value="{{ pedido.cantidad }}" required></td>
+                            <td><input type="text" id="direccion" name="direccion" class="form-control" value="{{ pedido.direccion }}" required></td>
+                            <td>
+                                <button type="submit" class="btn btn-success">Actualizar</button>
+                                <a href="eliminar-producto-pedido?id_pedido={{ pedido.pedido_id }}&id_producto={{ pedido.producto_id }}" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

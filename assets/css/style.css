@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+}
+
+nav{
+    height: 10vh;
+    background-color: aqua;
+}
+
+main{
+    height: 80vh;
+    background-color: beige;
+}
+
+footer{
+    height: 10vh;
+    background-color:burlywood ;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+nav ul {
+    margin:0;
+}
