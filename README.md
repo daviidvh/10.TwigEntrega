@@ -43,6 +43,4 @@ R11. Interfaz usuario responsive*.
 
 R12. Gestion de rutas
 
-## Fecha de entrega
-Por determinar. Al rededor de una semana.
-PROVISIONAL: viernes 26 enero 23:59h
+
