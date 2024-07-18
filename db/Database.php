@@ -38,7 +38,7 @@
         public function conectar() : PDO{
 
             $db = new \PDO(
-                "mysql:host=".$this->getHost().";port=".$this->getPort().";dbname=entregatwig",
+                "mysql:host=".$this->getHost().";port=".$this->getPort().";dbname=t2p1",
                 $this->getUser(),
                 $this->getPassword(),
                 array(

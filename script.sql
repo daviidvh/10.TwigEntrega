@@ -28,7 +28,7 @@ CREATE TABLE pedidos (
     id_cliente INT,
     direccion_entrega TEXT,
     total DECIMAL(10, 2),
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
 );
 
 -- Tabla de Pedidos_has_Productos
@@ -38,8 +38,8 @@ CREATE TABLE pedidos_has_productos (
     cantidad INT,
     precio_unitario DECIMAL(10, 2),
     PRIMARY KEY (id_pedido, id_producto),
-    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
-    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE
 );
 
 -- Tabla de Estado
@@ -54,8 +54,8 @@ CREATE TABLE pedido_has_estado (
     id_estado INT,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_pedido, id_estado),
-    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
-    FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_estado) REFERENCES estado(id) ON DELETE CASCADE
 );
 
 
